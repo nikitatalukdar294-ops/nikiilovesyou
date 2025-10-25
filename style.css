@@ -175,3 +175,41 @@ body.gallery-body h1 {
     font-size: 1rem;
   }
 }
+
+
+/* Fix message not fully visible on mobile */
+.message-slider {
+  position: fixed;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  background: white;
+  box-shadow: 0 -5px 25px rgba(255, 105, 180, 0.4);
+  text-align: center;
+  padding: 30px 20px;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  transition: bottom 0.6s ease;
+  font-family: 'Sacramento', cursive;
+  font-size: clamp(1.2rem, 4vw, 1.8rem);
+  color: #ff1493;
+
+  /* ✅ new additions */
+  max-height: 80vh;       /* prevent from taking full screen */
+  overflow-y: auto;       /* allow scrolling if text is long */
+  box-sizing: border-box; /* ensure padding doesn't break layout */
+}
+
+/* When active */
+.message-slider.active {
+  bottom: 0;
+}
+
+/* Optional: make sure scrolling looks smooth on iOS */
+.message-slider::-webkit-scrollbar {
+  width: 6px;
+}
+.message-slider::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 105, 180, 0.5);
+  border-radius: 3px;
+}
